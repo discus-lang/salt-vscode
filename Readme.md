@@ -1,4 +1,4 @@
-# Salt VSCode Extension
+# Salt Visual Studio Code language extension
 
 Visual Studio Code language extension for the Salt language.
 
