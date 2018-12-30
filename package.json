@@ -3,6 +3,11 @@
 	"displayName": "salt-vscode",
 	"description": "Salt language plugin",
 	"version": "0.0.1",
+	"publisher": "discus-lang",
+	"repository": {
+		"type": "git",
+		"url":  "git://github.com/discus-lang/salt-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -15,21 +20,27 @@
 	"main": "./out/extension.js",
 	"contributes": {
 		"languages": [
-            {   "id": "salt",
-				"extensions": [".salt"],
-				"aliases": ["Salt"],
+			{
+				"id": "salt",
+				"extensions": [
+					".salt"
+				],
+				"aliases": [
+					"Salt"
+				],
 				"configuration": "data/salt.json"
-            }
-        ],
-        "grammars": [
-            { 
-                "language": "salt",
-                "scopeName": "source.salt",
-                "path": "./syntaxes/salt.tmGrammar.json"
-            }
-        ],
+			}
+		],
+		"grammars": [
+			{
+				"language": "salt",
+				"scopeName": "source.salt",
+				"path": "./syntaxes/salt.tmGrammar.json"
+			}
+		],
 		"commands": [
-			{	"command": "extension.helloWorld",
+			{
+				"command": "extension.helloWorld",
 				"title": "Hello World"
 			}
 		]
@@ -47,5 +58,8 @@
 		"tslint": "^5.8.0",
 		"@types/node": "^8.10.25",
 		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"vsce": "^1.54.0"
 	}
 }
