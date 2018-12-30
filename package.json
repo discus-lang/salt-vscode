@@ -16,7 +16,9 @@
 	"contributes": {
 		"languages": [
             {   "id": "salt",
-                "extensions": [".salt"]
+				"extensions": [".salt"],
+				"aliases": ["Salt"],
+				"configuration": "data/salt.json"
             }
         ],
         "grammars": [

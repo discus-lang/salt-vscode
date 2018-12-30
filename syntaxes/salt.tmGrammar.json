@@ -3,6 +3,8 @@
 	"patterns": [
                 { "include": "#comment" },
                 { "include": "#expression" },
+                { "include": "#decl-type"},
+                { "include": "#decl-term"},
                 { "include": "#decl-test"}
         ],
 	"repository": {
@@ -16,13 +18,24 @@
                         "name":  "comment.line.salt"
                 },
 
+                "decl-type": {
+                        "match": "^type",
+                        "name":  "entity.name.section.salt"
+                },
+
+                "decl-term": {
+                        "match": "^term",
+                        "name":  "entity.name.section.salt"
+                },
+
                 "decl-test": {
                         "match": "^(test)\\s+(kind|type|eval|eval'type|eval'term|assert|exec)\\b",
                         "captures": { 
-                                "1": {"name": "entity.name.section"},
-                                "2": {"name": "entity.name.section"}
+                                "1": {"name": "entity.name.section.salt"},
+                                "2": {"name": "entity.name.section.salt"}
                         }
                 },
+
 
                 "expression": {
 			"patterns": [
@@ -34,7 +47,7 @@
                         ]
 		},
 		"keyword": {
-			"match": "\\b(type|term|forall|exists|the|fun|let|in|if|then|else|case|of|otherwise|box|run|do)\\b",
+			"match": "\\b(forall|exists|the|fun|let|in|if|then|else|case|of|otherwise|box|run|do)\\b",
 			"name": "keyword.control.salt"
 		},
                 "prim-operator": {
