@@ -4,9 +4,6 @@ Visual Studio Code language extension for the Salt language.
 
 So far it only has the syntax definition.
 
-
-## Development
-
 ### Building
 Use VSCode for development of the extension itself. Load the code into a new workspace, select the `src/extension.ts` module and run the `Start Debugging` command in VSCode. This should open a new VSCode window with the current version of the extension running. After modifing some of the code, use the `Reload` command in the VSCode debug pane to reload the extension into the second window.
 
