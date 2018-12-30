@@ -14,9 +14,20 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"languages": [
+            {   "id": "salt",
+                "extensions": [".salt"]
+            }
+        ],
+        "grammars": [
+            { 
+                "language": "salt",
+                "scopeName": "source.salt",
+                "path": "./syntaxes/salt.tmGrammar.json"
+            }
+        ],
 		"commands": [
-			{
-				"command": "extension.helloWorld",
+			{	"command": "extension.helloWorld",
 				"title": "Hello World"
 			}
 		]

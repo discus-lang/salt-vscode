@@ -1,0 +1,65 @@
+{
+	"scopeName": "source.salt",
+	"patterns": [
+                { "include": "#comment" },
+                { "include": "#expression" },
+                { "include": "#decl-test"}
+        ],
+	"repository": {
+                "comment": {
+                        "patterns": [
+                                { "include": "#comment-line" }
+                        ]
+                },
+                "comment-line": {
+                        "match": "(--).*$\n?",
+                        "name":  "comment.line.salt"
+                },
+
+                "decl-test": {
+                        "match": "^(test)\\s+(kind|type|eval|eval'type|eval'term|assert|exec)\\b",
+                        "captures": { 
+                                "1": {"name": "entity.name.section"},
+                                "2": {"name": "entity.name.section"}
+                        }
+                },
+
+                "expression": {
+			"patterns": [
+                                { "include": "#keyword" }, 
+                                { "include": "#paren-expression" },
+                                { "include": "#prim-operator" },
+                                { "include": "#prim-constructor" },
+                                { "include": "#prim-numeric"}
+                        ]
+		},
+		"keyword": {
+			"match": "\\b(type|term|forall|exists|the|fun|let|in|if|then|else|case|of|otherwise|box|run|do)\\b",
+			"name": "keyword.control.salt"
+		},
+                "prim-operator": {
+                        "match": "\\#[a-z][a-zA-Z0-9']*" ,
+                        "name": "constant.language.salt"
+                },
+                "prim-constructor": {
+                        "match": "\\#[A-Z][a-zA-Z0-9']*" ,
+                        "name": "storage.type.salt"
+                },
+                "prim-numeric": {
+                        "match": "\\b[0-9]+\\b",
+                        "name":  "constant.numeric.salt"
+                },
+                "paren-expression": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": { "name": "punctuation.paren.open.salt" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.paren.close.salt" }
+			},
+			"name": "expression.group.salt",
+			"patterns": [{ "include": "#expression" }]
+		}                
+        }
+}
