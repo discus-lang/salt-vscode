@@ -13,6 +13,9 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 	context.subscriptions.push(dHello);
 
+        // TODO: make configurable.
+        // TODO: send a popup message if we can't find the salt executable.
+        //       we can use the info command above.
 	let serverPath = "/Users/benl/devel/salt-vscode/bin/salt.sh";
 	let serverOptions: vsclient.ServerOptions = {
 		run:   { command: serverPath, args: ['-lsp'] },
