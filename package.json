@@ -15,7 +15,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld",
 		"onLanguage:salt"
 	],
 	"main": "./out/extension.js",
@@ -40,15 +39,16 @@
 			}
 		],
 		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			}
 		],
                 "configuration": {
 			"type": "object",
-			"title": "Salt configuration",
+			"title": "Salt",
 			"properties": {
+                                "salt.server.executable": {
+                                        "type": "string",
+                                        "default": "salt",
+                                        "description": "Path to 'salt' executable."
+                                },
 				"salt.trace.server": {
 					"scope": "window",
 					"type":  "string",
@@ -58,8 +58,13 @@
 						"verbose"
 					],
 					"default": "off",
-					"description": "Traces the communication between VS Code and the language server."
-				}
+					"description": "Trace the communication between VS Code and the language server. The output appears in the Salt Language Server output channel in VSCode."
+				},
+                                "salt.trace.debug": {
+                                        "type":  "string",
+                                        "default": null,
+                                        "description": "Log server debug messages to a file. You will need to restart the Salt extension after changing this."
+                                }
 			}
 		}
 	},

@@ -2,24 +2,30 @@
 import * as vscode   from 'vscode';
 import * as vsclient from 'vscode-languageclient';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Salt extension activating');
 
-	// The command has been defined in the package.json file
-	let dHello = vscode.commands.registerCommand('extension.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World!');
-	});
-	context.subscriptions.push(dHello);
+        // Get the server path from the config.
+        let cfgServerPath: string | undefined
+                = vscode.workspace.getConfiguration('salt').get('server.executable');
 
-        // TODO: make configurable.
-        // TODO: send a popup message if we can't find the salt executable.
-        //       we can use the info command above.
-	let serverPath = "/Users/benl/devel/salt-vscode/bin/salt.sh";
+        let serverPath: string
+                = cfgServerPath === null
+                        ? 'salt'
+                        : "" + cfgServerPath;
+
+        // Get the debug log from the config, if it's set.
+        let cfgDebugLog: string | undefined
+                = vscode.workspace.getConfiguration('salt').get('trace.debug');
+
+        let args: string[]
+                =  cfgDebugLog === null
+                        ? ['-lsp']
+                        : ['-lsp-debug', "" + cfgDebugLog];
+
+        // Start the language server.
 	let serverOptions: vsclient.ServerOptions = {
-		run:   { command: serverPath, args: ['-lsp'] },
-		debug: { command: serverPath, args: ['-lsp-debug']}
+		run:   { command: serverPath, args: args },
+		debug: { command: serverPath, args: args }
 	};
 
 	let clientOptions: vsclient.LanguageClientOptions = {
@@ -36,9 +42,6 @@ export function activate(context: vscode.ExtensionContext) {
 		serverOptions,
 		clientOptions).start();
 	context.subscriptions.push(dClient);
-
-	console.log('Salt extension activated');
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {}
