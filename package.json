@@ -47,7 +47,7 @@
                                 "salt.server.executable": {
                                         "type": "string",
                                         "default": "salt",
-                                        "description": "Path to 'salt' executable."
+                                        "description": "How to start the 'salt' executable. You can set this to just 'salt' if the executable is in your path when you start VSCode, otherwise give the full path to it."
                                 },
 				"salt.trace.server": {
 					"scope": "window",
@@ -63,7 +63,7 @@
                                 "salt.trace.debug": {
                                         "type":  "string",
                                         "default": null,
-                                        "description": "Log server debug messages to a file. You will need to restart the Salt extension after changing this."
+                                        "description": "Log server side debug messages to this file. You will need to restart the Salt extension after changing this."
                                 }
 			}
 		}

@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
                 = vscode.workspace.getConfiguration('salt').get('server.executable');
 
         let serverPath: string
-                = cfgServerPath === null
+                = ("" + cfgServerPath) === ""
                         ? 'salt'
                         : "" + cfgServerPath;
 
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
                 = vscode.workspace.getConfiguration('salt').get('trace.debug');
 
         let args: string[]
-                =  cfgDebugLog === null
+                =  ("" + cfgDebugLog) === ""
                         ? ['-lsp']
                         : ['-lsp-debug', "" + cfgDebugLog];
 
