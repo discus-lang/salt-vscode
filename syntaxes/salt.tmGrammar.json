@@ -5,7 +5,9 @@
                 { "include": "#expression" },
                 { "include": "#decl-type"},
                 { "include": "#decl-term"},
-                { "include": "#decl-test"}
+                { "include": "#decl-test"},
+                { "include": "#decl-proc"},
+                { "include": "#decl-bloc"}
         ],
 	"repository": {
                 "comment": {
@@ -26,6 +28,16 @@
                 "decl-term": {
                         "match": "^term",
                         "name":  "keyword.control.declaration.term.salt"
+                },
+
+                "decl-proc": {
+                        "match": "^proc",
+                        "name":  "keyword.control.declaration.proc.salt"
+                },
+
+                "decl-bloc": {
+                        "match": "^bloc",
+                        "name":  "keyword.control.declaration.bloc.salt"
                 },
 
                 "decl-test": {
@@ -59,7 +71,7 @@
 			"name": "keyword.control.expression.type.salt"
 		},
 		"keyword-term": {
-			"match": "\\b(the|let|in|if|then|else|case|of|otherwise|box|run|do)\\b",
+			"match": "\\b(the|let|in|if|then|else|case|of|box|run|proc|seq|end|loop|while|cell|return|break|continue|bloc)\\b",
 			"name": "keyword.control.expression.term.salt"
 		},
                 "prim-operator": {
