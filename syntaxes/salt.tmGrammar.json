@@ -71,7 +71,7 @@
 			"name": "keyword.control.expression.type.salt"
 		},
 		"keyword-term": {
-			"match": "\\b(the|let|do|in|if|then|else|case|of|box|run|proc|yield|call|with|seq|end|enter|leave|launch|return|cell|update|when|whens|done|match|loop|break|continue|bloc)\\b",
+			"match": "\\b(the|let|rec|in|do|if|then|else|case|of|box|run|proc|yield|call|with|seq|end|enter|leave|launch|return|cell|update|when|whens|done|match|loop|break|continue|while|bloc)\\b",
 			"name": "keyword.control.expression.term.salt"
 		},
                 "prim-operator": {
