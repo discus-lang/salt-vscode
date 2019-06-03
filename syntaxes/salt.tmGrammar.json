@@ -7,7 +7,7 @@
                 { "include": "#decl-term"},
                 { "include": "#decl-test"},
                 { "include": "#decl-proc"},
-                { "include": "#decl-bloc"}
+                { "include": "#decl-emit"}
         ],
 	"repository": {
                 "comment": {
@@ -35,19 +35,20 @@
                         "name":  "keyword.control.declaration.proc.salt"
                 },
 
-                "decl-bloc": {
-                        "match": "^bloc",
-                        "name":  "keyword.control.declaration.bloc.salt"
-                },
-
                 "decl-test": {
-                        "match": "^(watch\\s+)?(test)\\s+(kind|type|eval|eval'type|eval'term|assert|exec)\\b",
+                        "match": "^(watch\\s+)?(test)\\s+(kind|type|eval|eval'type|eval'term|assert|exec|emit)\\b",
                         "captures": {
                                 "1": {"name": "keyword.control.declaration.watch.salt"},
                                 "2": {"name": "keyword.control.declaration.test.salt"},
                                 "3": {"name": "keyword.control.declaration.test.mode.salt"}
                         }
                 },
+
+                "decl-emit": {
+                        "match": "^emit",
+                        "name":  "keyword.control.declaration.emit.salt"
+                },
+
 
                 "expression": {
 			"patterns": [
